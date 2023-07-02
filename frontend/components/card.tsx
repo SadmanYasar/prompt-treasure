@@ -65,7 +65,7 @@ export default function Card() {
                 </motion.div>
             </motion.div>
             <div
-                className="md:hidden relative max-w-sm rounded overflow-hidden shadow-md transition-colors"
+                className="md:hidden relative max-w-sm rounded overflow-hidden shadow-lg transition-colors"
             >
                 <img
                     className="w-full h-96 object-cover"
@@ -73,7 +73,7 @@ export default function Card() {
                     alt="Sunset in the mountains"
                 ></img>
                 <div
-                    className="md:absolute md:bottom-0 backdrop-blur-xl"
+                    className="md:absolute md:bottom-0 bg-slate-700"
                 >
                     <div className="px-6 py-4">
                         <div className="font-bold text-xl mb-2 bg-clip-text text-transparent bg-gradient-to-r from-teal-300 to-blue-600">The Coldest Sunset</div>
