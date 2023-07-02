@@ -110,12 +110,12 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <motion.header className="sticky top-0 w-full bg-primary-black">
+    <motion.header className={`sticky top-0 ${mobileMenuOpen ? 'z-0' : 'z-[100]'} w-full bg-primary-black`}>
       <nav className="flex items-center justify-between p-4 mx-auto max-w-7xl lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
-            <img className="w-auto h-16" src="https://img.icons8.com/?size=512&id=81028&format=png" alt="" />
+            <img className="w-auto h-16 hover:animate-spin" src="https://img.icons8.com/?size=512&id=81028&format=png" alt="" />
           </a>
         </div>
         <div className="flex lg:hidden">
@@ -147,10 +147,40 @@ export default function Header() {
         </Popover.Group> */}
         <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-10">
           <MagnifyingGlassIcon className="text-sm font-semibold leading-6 w-6 h-6 text-white" />
-          <a href="#" className="text-sm group font-semibold leading-6 text-white transition duration-300">
-            Sign in
-            <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-white"></span>
-          </a>
+          {!session && (
+            <>
+              <a
+                href={`/api/auth/signin`}
+                onClick={(e) => {
+                  e.preventDefault()
+                  signIn()
+                }}
+                className="text-sm group font-semibold leading-6 text-white transition duration-300">
+                Sign in
+                <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-white"></span>
+              </a>
+            </>
+          )}
+          {session?.user && (
+            <>
+              {session.user.image && (
+                <span
+                  style={{ backgroundImage: `url('${session.user.image}')` }}
+                  className="w-8 h-8 bg-cover rounded-full"
+                />
+              )}
+              <a
+                href={`/api/auth/signout`}
+                onClick={(e) => {
+                  e.preventDefault()
+                  signOut()
+                }}
+                className="text-sm group font-semibold leading-6 text-white transition duration-300">
+                Sign out
+                <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-white"></span>
+              </a>
+            </>
+          )}
         </div>
       </nav>
       <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
