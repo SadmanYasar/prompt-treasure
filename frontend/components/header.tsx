@@ -1,4 +1,3 @@
-import Link from "next/link"
 import { signIn, signOut, useSession } from "next-auth/react"
 
 // The approach used in this component shows how to build a sign in and sign out
@@ -236,12 +235,34 @@ export default function Header() {
                 </a>
               </div>
               <div className="py-6">
-                <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-white hover:bg-slate-800"
-                >
-                  Sign in
-                </a>
+                {!session && (
+                  <>
+                    <a
+                      href={`/api/auth/signin`}
+                      onClick={(e) => {
+                        e.preventDefault()
+                        signIn()
+                      }}
+                      className="block px-3 py-2 -mx-3 text-base font-semibold leading-7 text-white rounded-lg hover:bg-slate-800">
+                      Sign in
+
+                    </a>
+                  </>
+                )}
+                {session?.user && (
+                  <>
+                    <a
+                      href={`/api/auth/signout`}
+                      onClick={(e) => {
+                        e.preventDefault()
+                        signOut()
+                      }}
+                      className="block px-3 py-2 -mx-3 text-base font-semibold leading-7 text-white rounded-lg hover:bg-slate-800">
+                      Sign out
+
+                    </a>
+                  </>
+                )}
               </div>
             </div>
           </div>
