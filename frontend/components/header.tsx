@@ -105,11 +105,13 @@ import {
 import { motion } from 'framer-motion';
 
 export default function Header() {
+  const { data: session, status } = useSession()
+  const loading = status === "loading"
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <motion.header className="fixed w-full bg-primary-black">
-      <nav className="flex items-center justify-between p-6 mx-auto max-w-7xl lg:px-8" aria-label="Global">
+    <motion.header className="sticky top-0 w-full bg-primary-black">
+      <nav className="flex items-center justify-between p-4 mx-auto max-w-7xl lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
@@ -144,9 +146,10 @@ export default function Header() {
           </a>
         </Popover.Group> */}
         <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-10">
-          <MagnifyingGlassIcon className="text-sm font-semibold leading-6 w-6 h-6 text-white"/>
-          <a href="#" className="text-sm font-semibold leading-6 text-white">
+          <MagnifyingGlassIcon className="text-sm font-semibold leading-6 w-6 h-6 text-white" />
+          <a href="#" className="text-sm group font-semibold leading-6 text-white transition duration-300">
             Sign in
+            <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-white"></span>
           </a>
         </div>
       </nav>
@@ -207,7 +210,7 @@ export default function Header() {
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-white hover:bg-slate-800"
                 >
-                  Log in
+                  Sign in
                 </a>
               </div>
             </div>
