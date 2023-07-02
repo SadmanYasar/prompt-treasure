@@ -2,24 +2,7 @@
 
 import { motion } from "framer-motion";
 import Card from "../components/card";
-
-const slideIn = {
-  hidden: {
-    x: '-100%',
-    y: '0%',
-  },
-  show: {
-    x: 0,
-    y: 0,
-    transition: {
-      type: 'spring',
-      delay: 0.4,
-      duration: 0.8,
-      ease: 'easeOut',
-    },
-  },
-};
-
+import { slideIn } from "../utils/motion";
 
 export default function IndexPage() {
 

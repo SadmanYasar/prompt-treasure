@@ -1,3 +1,6 @@
+import { slideIn } from "../utils/motion"
+import { motion } from "framer-motion"
+
 export default function Footer() {
 
   const footerNavs = [
@@ -88,9 +91,14 @@ export default function Footer() {
       <div className="max-w-screen-xl mx-auto px-4 md:px-8">
         <div className="justify-between items-center gap-12 md:flex">
           <div className="flex-1 max-w-lg">
-            <h3 className="text-white text-2xl font-bold">
+            <motion.h3
+              variants={slideIn}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              className="text-white text-2xl font-bold">
               Get our beautiful newsletter straight to your inbox.
-            </h3>
+            </motion.h3>
           </div>
           <div className="flex-1 mt-6 md:mt-0">
             <form onSubmit={(e) => e.preventDefault()} className="flex items-center gap-x-3 md:justify-end">

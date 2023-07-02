@@ -19,22 +19,22 @@ const navVariants = {
     },
 };
 
-const slideIn = (direction: string, type: any, delay: any, duration: any) => ({
+export const slideIn = {
     hidden: {
-        x: direction === 'left' ? '-100%' : direction === 'right' ? '100%' : 0,
-        y: direction === 'up' ? '100%' : direction === 'down' ? '100%' : 0,
+        x: '-100%',
+        y: '0%',
     },
     show: {
         x: 0,
         y: 0,
         transition: {
-            type,
-            delay,
-            duration,
+            type: 'spring',
+            delay: 0.4,
+            duration: 0.8,
             ease: 'easeOut',
         },
     },
-});
+};
 
 const staggerContainer = (staggerChildren: any, delayChildren: any) => ({
     hidden: {},
