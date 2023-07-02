@@ -2,3 +2,9 @@
 2. Make a new page for the user to see his profile
 3. Make a comment section using widgetbot.io
 4. Add graphql armour
+
+
+Sitemap
+- Home
+- Profile
+- Search

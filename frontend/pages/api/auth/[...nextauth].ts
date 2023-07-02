@@ -1,8 +1,8 @@
 import NextAuth, { NextAuthOptions } from "next-auth"
 import DiscordProvider from "next-auth/providers/discord";
-import { PrismaAdapter } from "@auth/prisma-adapter";
-import { PrismaClient } from "@prisma/client";
-import { Adapter } from "next-auth/adapters";
+// import { PrismaAdapter } from "@auth/prisma-adapter";
+// import { PrismaClient } from "@prisma/client";
+// import { Adapter } from "next-auth/adapters";
 
 // const prisma = new PrismaClient();
 
@@ -27,7 +27,6 @@ export const authOptions: NextAuthOptions = {
     // This method is not invoked when you persist sessions in a database.
     async jwt({ token, account }) {
       if (account) {
-        console.log(account.provider)
         const res = await fetch(
           `${process.env.NEXT_PUBLIC_API_URL}/api/auth/${account.provider}/callback?access_token=${account.access_token}`
         );
