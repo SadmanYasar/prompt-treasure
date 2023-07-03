@@ -18,6 +18,7 @@ const images = [
 ]
 
 export default function IndexPage() {
+  const subtext = "100 Prompts for Midjourney"
 
   return (
     <div className="px-8 py-2 md:px-16 md:py-4">
@@ -30,10 +31,20 @@ export default function IndexPage() {
             whileInView="show"
             viewport={{ once: true }}
           >
-            <h4 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-300 to-blue-600 md:text-5xl">Prompt Treasure</h4>
-            <p className="text-lg text-white">
-              100 Prompts for Midjourney
-            </p>
+            <h4 className="animate-text text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-300 via-purple-500 to-orange-500 md:text-5xl">Prompt Treasure</h4>
+            <motion.div>
+              {subtext.split("").map((letter, index) => (
+                <motion.span
+                  key={index}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.2, delay: index * 0.1 }}
+                  className="text-lg text-white"
+                >
+                  {letter}
+                </motion.span>
+              ))}
+            </motion.div>
           </motion.div>
           <div className="grid grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-3">
             {images.map((image, index) => (

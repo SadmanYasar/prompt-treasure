@@ -114,7 +114,9 @@ export default function Header() {
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
-            <img className="w-auto h-16 hover:animate-spin" src="https://img.icons8.com/?size=512&id=81028&format=png" alt="" />
+            <div className="w-14 h-14 hover:animate-spin rounded-full bg-[#344E5D] flex justify-center items-center">
+              <img className="w-auto pt-2" src="/rudder.svg" alt="" />
+            </div>
           </a>
         </div>
         <div className="flex lg:hidden">
@@ -188,11 +190,14 @@ export default function Header() {
           <div className="flex items-center justify-between">
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
-              <img
+              <div className="w-14 h-14 hover:animate-spin rounded-full bg-[#344E5D] flex justify-center items-center">
+                <img className="w-auto pt-2" src="/rudder.svg" alt="" />
+              </div>
+              {/* <img
                 className="w-auto h-8"
                 src="https://img.icons8.com/?size=512&id=81028&format=png"
                 alt=""
-              />
+              /> */}
             </a>
             <button
               type="button"
