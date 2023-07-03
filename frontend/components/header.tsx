@@ -191,7 +191,7 @@ export default function Header() {
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
               <div className="w-14 h-14 hover:animate-spin rounded-full bg-[#344E5D] flex justify-center items-center">
-                <img className="w-auto pt-2" src="/rudder.svg" alt="" />
+                <img className="w-auto pt-2 pointer-events-none" src="/rudder.svg" alt="" />
               </div>
               {/* <img
                 className="w-auto h-8"

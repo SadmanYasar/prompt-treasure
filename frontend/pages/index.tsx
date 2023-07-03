@@ -25,7 +25,7 @@ export default function IndexPage() {
       <section className="py-20">
         <div className="m-auto max-w-7xl space-y-12">
           <motion.div
-            className="space-y-2"
+            className="space-y-2 pointer-events-none"
             variants={slideIn}
             initial="hidden"
             whileInView="show"
