@@ -94,23 +94,53 @@ import { signIn, signOut, useSession } from "next-auth/react"
 /* eslint-disable @next/next/no-img-element */
 //Navbar.tsx
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Dialog, Disclosure, Popover } from "@headlessui/react"
 import {
   Bars3Icon,
   XMarkIcon,
   MagnifyingGlassIcon
 } from "@heroicons/react/24/outline"
-import { motion } from 'framer-motion';
+import { motion, useScroll } from 'framer-motion';
 
 export default function Header() {
   const { data: session, status } = useSession()
   const loading = status === "loading"
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [hidden, setHidden] = useState(false)
+  const { scrollY } = useScroll();
+
+  /** this onUpdate function will be called in the `scrollY.onChange` callback **/
+  function update() {
+    if (scrollY?.get() < scrollY?.getPrevious()) {
+      setHidden(false);
+    } else if (scrollY?.get() > 100 && scrollY?.get() > scrollY?.getPrevious()) {
+      setHidden(true);
+    }
+  }
+
+  /** add this useEffect hook to return events everytime the scrollY changes **/
+  useEffect(() => {
+    return scrollY.on('change', update);
+  });
+
+  const variants = {
+    /** this is the "visible" key and it's respective style object **/
+    visible: { opacity: 1, y: 0 },
+    /** this is the "hidden" key and it's respective style object **/
+    hidden: { opacity: 0, y: -25 }
+  };
 
   return (
-    <motion.header className={`sticky top-0 ${mobileMenuOpen ? 'z-0' : 'z-[100]'} w-full bg-primary-black`}>
-      <nav className="flex items-center justify-between p-4 mx-auto max-w-7xl lg:px-8" aria-label="Global">
+    <motion.header
+      className={`sticky top-0 ${mobileMenuOpen ? 'z-0' : 'z-[100]'} w-full backdrop-filter backdrop-blur-lg bg-opacity-30`}
+      variants={variants}
+      animate={hidden ? "hidden" : "visible"}
+      transition={{ ease: [0.1, 0.25, 0.3, 1], duration: 0.6 }}
+    >
+      <nav
+        className="flex items-center justify-between p-4 mx-auto max-w-7xl lg:px-8"
+        aria-label="Global">
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
