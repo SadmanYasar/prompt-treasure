@@ -12,16 +12,21 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "content": {
-      "type": "text"
-    },
-    "title": {
-      "type": "string"
-    },
-    "slug": {
+    "Title": {
       "type": "string",
       "required": true,
       "unique": true
+    },
+    "Slug": {
+      "type": "uid",
+      "targetField": "Title",
+      "required": true
+    },
+    "Description": {
+      "type": "text",
+      "required": true,
+      "maxLength": 4000,
+      "minLength": 10
     }
   }
 }

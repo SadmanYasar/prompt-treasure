@@ -3,6 +3,7 @@
 3. Make a comment section using widgetbot.io / strapi comment plugin
 4. Add graphql armour
 5. Add rate limiting
+6. Add swagger docs - DONE
 
 Sitemap
 - Home
