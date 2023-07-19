@@ -10,6 +10,7 @@
     "strapi": "strapi"
   },
   "dependencies": {
+    "@escape.tech/graphql-armor": "^2.2.0",
     "@strapi/plugin-documentation": "^4.11.3",
     "@strapi/plugin-graphql": "^4.11.3",
     "@strapi/plugin-i18n": "4.10.1",
