@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * resource service
+ * prompt service
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;
 
-module.exports = createCoreService('api::resource.resource');
+module.exports = createCoreService('api::prompt.prompt');

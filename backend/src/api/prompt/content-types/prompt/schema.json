@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "resources",
+  "collectionName": "prompts",
   "info": {
-    "singularName": "resource",
-    "pluralName": "resources",
-    "displayName": "Resource",
+    "singularName": "prompt",
+    "pluralName": "prompts",
+    "displayName": "Prompt",
     "description": ""
   },
   "options": {
@@ -17,16 +17,14 @@
       "required": true,
       "unique": true
     },
-    "Slug": {
+    "slug": {
       "type": "uid",
       "targetField": "Title",
       "required": true
     },
-    "Description": {
-      "type": "text",
-      "required": true,
-      "maxLength": 4000,
-      "minLength": 10
+    "description": {
+      "type": "string",
+      "required": true
     }
   }
 }

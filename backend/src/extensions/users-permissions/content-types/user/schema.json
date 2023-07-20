@@ -64,11 +64,6 @@
       "target": "plugin::users-permissions.role",
       "inversedBy": "users",
       "configurable": false
-    },
-    "resources": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::resource.resource"
     }
   }
 }

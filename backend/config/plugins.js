@@ -1,7 +1,7 @@
 const armor = require('@escape.tech/graphql-armor');
 
 const ApolloArmor = new armor.ApolloArmor();
-module.exports = {
+module.exports = ({ env }) => ({
     graphql: {
         config: {
             playgroundAlways: false,
@@ -13,4 +13,12 @@ module.exports = {
             },
         },
     },
-};
+    meilisearch: {
+        config: {
+            // Your meili host
+            host: env('MEILI_HOST'),
+            // Your master key or private key
+            apiKey: env('MEILI_MASTER_KEY'),
+        }
+    }
+});

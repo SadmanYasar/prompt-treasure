@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2023-07-14T05:28:16.687Z"
+    "x-generation-date": "2023-07-20T01:26:20.535Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -86,7 +86,7 @@
           }
         }
       },
-      "ResourceRequest": {
+      "PromptRequest": {
         "type": "object",
         "required": [
           "data"
@@ -95,42 +95,42 @@
           "data": {
             "required": [
               "Title",
-              "Slug",
-              "Description"
+              "slug",
+              "description"
             ],
             "type": "object",
             "properties": {
               "Title": {
                 "type": "string"
               },
-              "Slug": {
+              "slug": {
                 "type": "string"
               },
-              "Description": {
+              "description": {
                 "type": "string"
               }
             }
           }
         }
       },
-      "ResourceListResponseDataItem": {
+      "PromptListResponseDataItem": {
         "type": "object",
         "properties": {
           "id": {
             "type": "number"
           },
           "attributes": {
-            "$ref": "#/components/schemas/Resource"
+            "$ref": "#/components/schemas/Prompt"
           }
         }
       },
-      "ResourceListResponse": {
+      "PromptListResponse": {
         "type": "object",
         "properties": {
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ResourceListResponseDataItem"
+              "$ref": "#/components/schemas/PromptListResponseDataItem"
             }
           },
           "meta": {
@@ -159,21 +159,21 @@
           }
         }
       },
-      "Resource": {
+      "Prompt": {
         "type": "object",
         "required": [
           "Title",
-          "Slug",
-          "Description"
+          "slug",
+          "description"
         ],
         "properties": {
           "Title": {
             "type": "string"
           },
-          "Slug": {
+          "slug": {
             "type": "string"
           },
-          "Description": {
+          "description": {
             "type": "string"
           },
           "createdAt": {
@@ -475,22 +475,22 @@
           }
         }
       },
-      "ResourceResponseDataObject": {
+      "PromptResponseDataObject": {
         "type": "object",
         "properties": {
           "id": {
             "type": "number"
           },
           "attributes": {
-            "$ref": "#/components/schemas/Resource"
+            "$ref": "#/components/schemas/Prompt"
           }
         }
       },
-      "ResourceResponse": {
+      "PromptResponse": {
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/ResourceResponseDataObject"
+            "$ref": "#/components/schemas/PromptResponseDataObject"
           },
           "meta": {
             "type": "object"
@@ -705,7 +705,7 @@
     }
   },
   "paths": {
-    "/resources": {
+    "/prompts": {
       "get": {
         "responses": {
           "200": {
@@ -713,7 +713,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResourceListResponse"
+                  "$ref": "#/components/schemas/PromptListResponse"
                 }
               }
             }
@@ -770,7 +770,7 @@
           }
         },
         "tags": [
-          "Resource"
+          "Prompt"
         ],
         "parameters": [
           {
@@ -875,7 +875,7 @@
             }
           }
         ],
-        "operationId": "get/resources"
+        "operationId": "get/prompts"
       },
       "post": {
         "responses": {
@@ -884,7 +884,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResourceResponse"
+                  "$ref": "#/components/schemas/PromptResponse"
                 }
               }
             }
@@ -941,23 +941,23 @@
           }
         },
         "tags": [
-          "Resource"
+          "Prompt"
         ],
         "parameters": [],
-        "operationId": "post/resources",
+        "operationId": "post/prompts",
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ResourceRequest"
+                "$ref": "#/components/schemas/PromptRequest"
               }
             }
           }
         }
       }
     },
-    "/resources/{id}": {
+    "/prompts/{id}": {
       "get": {
         "responses": {
           "200": {
@@ -965,7 +965,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResourceResponse"
+                  "$ref": "#/components/schemas/PromptResponse"
                 }
               }
             }
@@ -1022,7 +1022,7 @@
           }
         },
         "tags": [
-          "Resource"
+          "Prompt"
         ],
         "parameters": [
           {
@@ -1036,7 +1036,7 @@
             }
           }
         ],
-        "operationId": "get/resources/{id}"
+        "operationId": "get/prompts/{id}"
       },
       "put": {
         "responses": {
@@ -1045,7 +1045,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResourceResponse"
+                  "$ref": "#/components/schemas/PromptResponse"
                 }
               }
             }
@@ -1102,7 +1102,7 @@
           }
         },
         "tags": [
-          "Resource"
+          "Prompt"
         ],
         "parameters": [
           {
@@ -1116,13 +1116,13 @@
             }
           }
         ],
-        "operationId": "put/resources/{id}",
+        "operationId": "put/prompts/{id}",
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ResourceRequest"
+                "$ref": "#/components/schemas/PromptRequest"
               }
             }
           }
@@ -1193,7 +1193,7 @@
           }
         },
         "tags": [
-          "Resource"
+          "Prompt"
         ],
         "parameters": [
           {
@@ -1207,7 +1207,7 @@
             }
           }
         ],
-        "operationId": "delete/resources/{id}"
+        "operationId": "delete/prompts/{id}"
       }
     },
     "/upload": {

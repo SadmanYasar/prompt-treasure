@@ -1,5 +1,5 @@
 {
-  "/resources": {
+  "/prompts": {
     "get": {
       "responses": {
         "200": {
@@ -7,7 +7,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ResourceListResponse"
+                "$ref": "#/components/schemas/PromptListResponse"
               }
             }
           }
@@ -64,7 +64,7 @@
         }
       },
       "tags": [
-        "Resource"
+        "Prompt"
       ],
       "parameters": [
         {
@@ -169,7 +169,7 @@
           }
         }
       ],
-      "operationId": "get/resources"
+      "operationId": "get/prompts"
     },
     "post": {
       "responses": {
@@ -178,7 +178,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ResourceResponse"
+                "$ref": "#/components/schemas/PromptResponse"
               }
             }
           }
@@ -235,23 +235,23 @@
         }
       },
       "tags": [
-        "Resource"
+        "Prompt"
       ],
       "parameters": [],
-      "operationId": "post/resources",
+      "operationId": "post/prompts",
       "requestBody": {
         "required": true,
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/ResourceRequest"
+              "$ref": "#/components/schemas/PromptRequest"
             }
           }
         }
       }
     }
   },
-  "/resources/{id}": {
+  "/prompts/{id}": {
     "get": {
       "responses": {
         "200": {
@@ -259,7 +259,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ResourceResponse"
+                "$ref": "#/components/schemas/PromptResponse"
               }
             }
           }
@@ -316,7 +316,7 @@
         }
       },
       "tags": [
-        "Resource"
+        "Prompt"
       ],
       "parameters": [
         {
@@ -330,7 +330,7 @@
           }
         }
       ],
-      "operationId": "get/resources/{id}"
+      "operationId": "get/prompts/{id}"
     },
     "put": {
       "responses": {
@@ -339,7 +339,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ResourceResponse"
+                "$ref": "#/components/schemas/PromptResponse"
               }
             }
           }
@@ -396,7 +396,7 @@
         }
       },
       "tags": [
-        "Resource"
+        "Prompt"
       ],
       "parameters": [
         {
@@ -410,13 +410,13 @@
           }
         }
       ],
-      "operationId": "put/resources/{id}",
+      "operationId": "put/prompts/{id}",
       "requestBody": {
         "required": true,
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/ResourceRequest"
+              "$ref": "#/components/schemas/PromptRequest"
             }
           }
         }
@@ -487,7 +487,7 @@
         }
       },
       "tags": [
-        "Resource"
+        "Prompt"
       ],
       "parameters": [
         {
@@ -501,7 +501,7 @@
           }
         }
       ],
-      "operationId": "delete/resources/{id}"
+      "operationId": "delete/prompts/{id}"
     }
   }
 }

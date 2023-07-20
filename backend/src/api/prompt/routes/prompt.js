@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * resource router
+ * prompt router
  */
 
 const { createCoreRouter } = require('@strapi/strapi').factories;
 
-module.exports = createCoreRouter('api::resource.resource');
+module.exports = createCoreRouter('api::prompt.prompt');
