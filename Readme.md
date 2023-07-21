@@ -6,6 +6,8 @@
 6. Add search with Meilisearch
 7. Add cloudinary for image upload - DONE
 8. Add a voting system for each image
+9. Deploy backend to render - DONE
+10. Deploy frontend to vercel - DONE
 
 Sitemap
 - Home
