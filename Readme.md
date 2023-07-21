@@ -3,8 +3,9 @@
 3. Make a comment section using widgetbot.io / strapi comment plugin
 4. Add graphql armor - DONE
 5. Add swagger docs - DONE
-6. Add search with Algolia/Meilisearch
-7. Add cloudinary for image upload
+6. Add search with Meilisearch
+7. Add cloudinary for image upload - DONE
+8. Add a voting system for each image
 
 Sitemap
 - Home
