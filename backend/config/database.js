@@ -102,8 +102,7 @@ module.exports = ({ env }) => ({
       database: env('DATABASE_NAME', 'Bank'),
       user: env('DATABASE_USERNAME', 'postgres'),
       password: env('DATABASE_PASSWORD', 'lolhooba'),
-      schema: env('DATABASE_SCHEMA', 'public'), // Not required
-      ssl: false,
+      ssl: true,
     },
     debug: false,
   },
