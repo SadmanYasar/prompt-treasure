@@ -34,7 +34,7 @@
     "@types/node": "^17",
     "@types/react": "^18.0.37",
     "autoprefixer": "^10.4.14",
-    "postcss": "^8.4.24",
+    "postcss": "^8.4.31",
     "prisma": "^4.16.1",
     "tailwindcss": "^3.3.2",
     "typescript": "^4"
